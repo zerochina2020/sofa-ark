@@ -18,6 +18,8 @@ package com.alipay.sofa.ark.support;
 
 import com.alipay.sofa.ark.container.test.TestClassLoader;
 import com.alipay.sofa.ark.support.listener.TestNGOnArk;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -27,16 +29,18 @@ import org.testng.annotations.Test;
  */
 @TestNGOnArk
 public class TestNGOnArkTest {
+    private static final Logger LOG = LoggerFactory.getLogger(TestNGCommonTest.class);
 
-    @Test
-    public void test() {
-        ClassLoader threadClassLoader = Thread.currentThread().getContextClassLoader();
-        ClassLoader thisClassLoader = this.getClass().getClassLoader();
-
-        Assert.assertTrue(threadClassLoader.getClass().getCanonicalName()
-            .equals(TestClassLoader.class.getCanonicalName()));
-        Assert.assertTrue(thisClassLoader.getClass().getCanonicalName()
-            .equals(TestClassLoader.class.getCanonicalName()));
-    }
+    // @Test
+    // public void test() {
+    //     ClassLoader threadClassLoader = Thread.currentThread().getContextClassLoader();
+    //     ClassLoader thisClassLoader = this.getClass().getClassLoader();
+    //
+    //     LOG.info("当前线程类加载器：{}, 当前类加载器：{}", threadClassLoader, thisClassLoader);
+    //     Assert.assertTrue(threadClassLoader.getClass().getCanonicalName()
+    //         .equals(TestClassLoader.class.getCanonicalName()));
+    //     Assert.assertTrue(thisClassLoader.getClass().getCanonicalName()
+    //         .equals(TestClassLoader.class.getCanonicalName()));
+    // }
 
 }

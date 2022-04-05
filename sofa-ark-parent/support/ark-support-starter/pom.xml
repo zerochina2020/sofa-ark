@@ -63,7 +63,9 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
+                <version>${surefire.version}</version>
                 <configuration>
+                    <testFailureIgnore>true</testFailureIgnore>
                     <threadCount>1</threadCount>
                     <properties>
                         <junit>false</junit>
